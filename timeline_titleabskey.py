@@ -23,7 +23,6 @@ for i in range(len(data_sources)):
     df['year'] = pd.DatetimeIndex(df['coverDateFinal']).year
     df_occurrences = pd.DataFrame(df['year'].value_counts()).sort_index().reset_index()
 
-    print(df_occurrences)
     if i == 0:
         ax.plot(df_occurrences['index'], df_occurrences['year'], label=data_sources_titles[i], marker='.')
     else:

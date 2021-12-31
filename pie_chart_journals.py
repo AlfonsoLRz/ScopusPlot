@@ -48,14 +48,13 @@ for i in range(len(data_sources)):
 
     flatten_array = df_merge[['openaccess', 'other']].stack().values
     colors = []
-    labels = [ "Open Access", "Other Method"]
+    labels = ["Open Access", "Other Method"]
     for _ in range(len(flatten_array / 2)):
         colors = colors + ['y', 'k']
 
     fig = plt.figure(figsize=(6, 3))
     ax = fig.add_subplot(111)
 
-    print()
     #ax.pie(df_occurrences['count'], labels=df_occurrences['pubSummary'], autopct='%1.1f%%', shadow=False)
     _, _, pct = ax.pie(df_merge['count'], labels=df_merge['pubSummary'], radius=1, autopct='%1.1f%%', startangle=90,
                        wedgeprops=dict(width=RADIUS_SIZE, edgecolor='w'), textprops=pie_font,
@@ -63,7 +62,7 @@ for i in range(len(data_sources)):
     for autotext in pct:
         autotext.set_color('white')
 
-    ax.pie(flatten_array, radius=1 - RADIUS_SIZE, colors=colors,
+    ax.pie(flatten_array, radius=1 - RADIUS_SIZE, colors=colors, startangle=90,
            wedgeprops=dict(width=RADIUS_SIZE / 4, edgecolor='w'))
 
     for label in ax.get_xticklabels():
@@ -80,5 +79,5 @@ for i in range(len(data_sources)):
     ax.legend(prop=font, handles=legend_elements, bbox_to_anchor=[.0, 1.12])
     plt.title('Top-6 journals on publishing research of 3D ' + data_sources[i] + ' modelling', **title_font, pad=25)
     plt.tight_layout()
-    plt.savefig('PieChart' + data_sources[i] + '.png', dpi=1000)
+    plt.savefig('PieChart' + data_sources[i] + '.png', dpi=2000)
     plt.show()
