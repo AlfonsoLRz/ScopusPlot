@@ -5,7 +5,7 @@ from pybliometrics.scopus import ScopusSearch
 
 
 data_sources = ['thermal', 'multispectral', 'hyperspectral']
-data_sources_titles = ['Thermal Publications', 'Multispectral Publications', 'Hyperspectral Publications']
+data_sources_titles = ['Thermal research', 'Multispectral research', 'Hyperspectral research']
 
 title_font = {'fontname': 'Palatino Linotype', 'size': 11}
 regular_font = {'fontname':'Palatino Linotype'}
@@ -35,7 +35,7 @@ for label in ax.get_yticklabels():
     label.set_fontproperties(font)
 
 ax.legend(prop=font)
-plt.title('2D/3D Thermal, multispectral and hyperspectral publications', **title_font, pad=15)
+plt.title('2D/3D Thermal, multispectral and hyperspectral research', **title_font, pad=15)
 plt.ylabel('Number of Publications', **regular_font)
 plt.xlabel('Year', **regular_font)
 plt.tight_layout()
